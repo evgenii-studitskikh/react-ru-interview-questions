@@ -41,3 +41,11 @@
    <p><i>Источник: <a href ="https://medium.com/@pavelbely/javascript-event-loop-%D0%B2-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0%D1%85-%D1%87%D0%B0%D1%81%D1%82%D1%8C-1-a19e4d99f242">Pavel Bely, medium.com</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>Что такое замыкание?</summary>
+<div>
+  <p>Замыкание — это комбинация функции и лексического окружения, в котором эта функция была объявлена. Это окружение состоит из произвольного количества локальных переменных, которые были в области действия функции во время создания замыкания.</p>
+  <p><i>Источник: <a href ="https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures">developer.mozilla.org</a></i></p>
+</div>
+</details>
