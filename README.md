@@ -75,3 +75,35 @@
   <p><i>Источник: <a href ="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this">developer.mozilla.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>Как работают методы apply(), call() и bind()?</summary>
+<div>
+  <p>Функции в JavaScript никак не привязаны к своему контексту this, с одной стороны, здорово – это позволяет быть максимально гибкими, одалживать методы и так далее.</p>
+  <p>Но с другой стороны – в некоторых случаях контекст может быть потерян. Способы явно указать this  - методоы bind, call и apply.</p>
+  <ul>
+    <li>
+      <p>Синтаксис метода call: func.call(context, arg1, arg2, ...)</p>
+      <p>При этом вызывается функция func, первый аргумент call становится её this, а остальные передаются «как есть». Вызов func.call(context, a, b...) – то же, что обычный вызов func(a, b...), но с явно указанным this(=context).</p>
+    </li>
+    <li>
+      <p>Если нам неизвестно, с каким количеством аргументов понадобится вызвать функцию, можно использовать более мощный метод: apply. Вызов функции при помощи func.apply работает аналогично func.call, но принимает массив аргументов вместо списка.</p>
+      <p>
+        func.call(context, arg1, arg2) идентичен вызову func.apply(context, [arg1, arg2]);
+      </p>
+    </li>
+    <li>
+      <p>Синтаксис встроенного bind: var wrapper = func.bind(context[, arg1, arg2...])</p>
+      <p>Методы bind и call/apply близки по синтаксису, но есть важнейшее отличие. Методы call/apply вызывают функцию с заданным контекстом и аргументами. А bind не вызывает функцию. Он только возвращает «обёртку», которую мы можем вызвать позже, и которая передаст вызов в исходную функцию, с привязанным контекстом.</p>
+    </li>
+  </ul>
+  <p>
+    <i>Источник:
+      <br/>
+      <a href ="https://learn.javascript.ru/call-apply#metod-apply">javascript.ru - call и apply</a>
+      <br/>
+      <a href ="https://learn.javascript.ru/bind#bind">javascript.ru - bind</a>
+    </i>
+  </p>
+</div>
+</details>
