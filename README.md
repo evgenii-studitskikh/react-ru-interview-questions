@@ -107,3 +107,62 @@
   </p>
 </div>
 </details>
+
+<details>
+<summary>Что такое Promise (Промис)?</summary>
+<div>
+  <br/>
+  <p>Promise – это специальный объект, который содержит своё состояние. Вначале pending («ожидание»), затем – одно из: fulfilled («выполнено успешно») или rejected («выполнено с ошибкой»).</p>
+  <p>
+    Синтаксис создания Promise:
+
+    var promise = new Promise(function(resolve, reject) {
+      // Эта функция будет вызвана автоматически
+
+      // В ней можно делать любые асинхронные операции,
+      // А когда они завершатся — нужно вызвать одно из:
+      // resolve(результат) при успешном выполнении
+      // reject(ошибка) при ошибке
+    })
+  </p>
+  <p>
+    Универсальный метод для навешивания обработчиков:
+    
+    promise.then(onFulfilled, onRejected)
+    
+  <ul>
+    <li>onFulfilled – функция, которая будет вызвана с результатом при resolve.</li>
+    <li>onRejected – функция, которая будет вызвана с ошибкой при reject.</li>
+  </ul>
+    Для того, чтобы поставить обработчик только на ошибку, вместо .then(null, onRejected) можно написать .catch(onRejected) – это то же самое.
+  </p>
+  <p>
+    Возьмём setTimeout в качестве асинхронной операции, которая должна через некоторое время успешно завершиться с результатом «result»:
+  
+    // Создаётся объект promise
+    let promise = new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        // переведёт промис в состояние fulfilled с результатом "result"
+        resolve("result");
+      }, 1000);
+
+    });
+
+    // promise.then навешивает обработчики на успешный результат или ошибку
+    promise
+      .then(
+        result => {
+          // первая функция-обработчик - запустится при вызове resolve
+          alert("Fulfilled: " + result); // result - аргумент resolve
+        },
+        error => {
+          // вторая функция - запустится при вызове reject
+          alert("Rejected: " + error); // error - аргумент reject
+        }
+      );
+   В результате запуска кода выше – через 1 секунду выведется «Fulfilled: result».
+  </p>
+  <p><i>Источник: <a href ="https://learn.javascript.ru/promise">javascript.ru</a></i></p>
+</div>
+</details>
