@@ -325,3 +325,55 @@
   <p><i>Источник: <a href ="https://ru.reactjs.org/docs/lists-and-keys.html">ru.reactjs.org</a></i></p>
 </div>
 </details>
+
+
+<details>
+<summary>В чем разница между управляемыми (controlled) и не управляемыми (uncontrolled) компонентами?</summary>
+<div>
+  <br />
+  <p> В HTML элементы формы, такие как input, textarea и select, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов setState().
+  </p>
+  <p>
+    В управляемом компоненте с каждой мутацией состояния связана функция-обработчик. Благодаря этому валидация или изменение введённого значения становится простой задачей. Например, если мы хотим, чтобы имя обязательно было набрано заглавными буквами, можно написать такой handleChange:
+    
+    ```
+    handleChange(event) {
+      this.setState({value: event.target.value.toUpperCase()});
+    }
+  </p>
+  <p>
+    Вместо того, чтобы писать обработчик события для каждого обновления состояния, вы можете использовать неуправляемый компонент и читать значения из DOM через реф.
+  
+    ```
+    class NameForm extends React.Component {
+      constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.input = React.createRef();
+      }
+
+      handleSubmit(event) {
+        alert('Отправленное имя: ' + this.input.current.value);
+        event.preventDefault();
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Имя:
+              <input type="text" ref={this.input} />
+            </label>
+            <input type="submit" value="Отправить" />
+          </form>
+        );
+      }
+    }
+  </p>
+  <p>
+    Неуправляемые компоненты опираются на DOM в качестве источника данных и могут быть удобны при интеграции React с кодом, не связанным с React. Количество кода может уменьшиться, правда, за счёт потери в его чистоте. Поэтому в обычных ситуациях мы рекомендуем использовать управляемые компоненты.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/forms.html#controlled-components">ru.reactjs.org</a></i></p>
+</div>
+</details>
+
