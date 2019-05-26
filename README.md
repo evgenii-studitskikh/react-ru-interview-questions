@@ -377,3 +377,20 @@
 </div>
 </details>
 
+
+<details>
+<summary>Что такое PureComponent?</summary>
+<div>
+  <br />
+  <p>
+    React.PureComponent похож на React.Component. Отличие заключается в том, что React.Component не реализует shouldComponentUpdate(), а React.PureComponent реализует его поверхностным сравнением пропсов и состояния.
+  </p>
+  <p>
+    Если метод render() вашего React-компонента всегда рендерит одинаковый результат при одних и тех же пропсах и состояниях, для повышения производительности в некоторых случаях вы можете использовать React.PureComponent.
+  </p>
+  <p>
+    Метод shouldComponentUpdate() базового класса React.PureComponent делает только поверхностное сравнение объектов. Если они содержат сложные структуры данных, это может привести к неправильной работе для более глубоких различий (то есть, различий, не выраженных на поверхности структуры). Наследуйте класс PureComponent только тогда, когда вы ожидаете использовать простые пропсы и состояние
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/react-api.html#reactpurecomponent">ru.reactjs.org</a></i></p>
+</div>
+</details>
