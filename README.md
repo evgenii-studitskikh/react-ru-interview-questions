@@ -336,7 +336,6 @@
   <p>
     В управляемом компоненте с каждой мутацией состояния связана функция-обработчик. Благодаря этому валидация или изменение введённого значения становится простой задачей. Например, если мы хотим, чтобы имя обязательно было набрано заглавными буквами, можно написать такой handleChange:
     
-    ```
     handleChange(event) {
       this.setState({value: event.target.value.toUpperCase()});
     }
@@ -344,7 +343,6 @@
   <p>
     Вместо того, чтобы писать обработчик события для каждого обновления состояния, вы можете использовать неуправляемый компонент и читать значения из DOM через реф.
   
-    ```
     class NameForm extends React.Component {
       constructor(props) {
         super(props);
@@ -377,7 +375,6 @@
 </div>
 </details>
 
-
 <details>
 <summary>Что такое PureComponent?</summary>
 <div>
@@ -392,5 +389,38 @@
     Метод shouldComponentUpdate() базового класса React.PureComponent делает только поверхностное сравнение объектов. Если они содержат сложные структуры данных, это может привести к неправильной работе для более глубоких различий (то есть, различий, не выраженных на поверхности структуры). Наследуйте класс PureComponent только тогда, когда вы ожидаете использовать простые пропсы и состояние
   </p>
   <p><i>Источник: <a href ="https://ru.reactjs.org/docs/react-api.html#reactpurecomponent">ru.reactjs.org</a></i></p>
+</div>
+</details>
+
+
+<details>
+<summary>Что такое Компонент высшего порядка (Higher-Order Component, HOC)?</summary>
+<div>
+  <br />
+  <p>
+    Говоря просто, компонент высшего порядка — это функция, которая принимает компонент и возвращает новый компонент. HOC часто встречаются в сторонних библиотеках, например connect в Redux и createFragmentContainer в Relay.
+
+    const EnhancedComponent = higherOrderComponent(WrappedComponent);
+  </p>
+  <p>
+    Давайте реализуем функцию withSubscription — она будет создавать компоненты и подписывать их на обновления DataSource (наподобие CommentList и BlogPost). Функция будет принимать оборачиваемый компонент и через пропсы передавать ему новые данные:
+  
+    const CommentListWithSubscription = withSubscription(
+      CommentList,
+      (DataSource) => DataSource.getComments()
+    );
+
+    const BlogPostWithSubscription = withSubscription(
+      BlogPost,
+      (DataSource, props) => DataSource.getBlogPost(props.id)
+    );
+  </p>
+  <p>
+    Первый параметр — это оборачиваемый компонент. Второй — функция, которая извлекает нужные нам данные, она получает DataSource и текущие пропсы.
+  </p>
+  <p>
+    Заметьте, что HOC ничего не меняет и не наследует поведение оборачиваемого компонента, вместо этого HOC оборачивает оригинальный компонент в контейнер посредством композиции. HOC является чистой функцией без побочных эффектов. Вот и всё! Оборачиваемый компонент получает все пропсы, переданные контейнеру, а также проп data. Для HOC не важно, как будут использоваться данные, а оборачиваемому компоненту не важно, откуда они берутся.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/higher-order-components.html">ru.reactjs.org</a></i></p>
 </div>
 </details>
