@@ -424,3 +424,61 @@
   <p><i>Источник: <a href ="https://ru.reactjs.org/docs/higher-order-components.html">ru.reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>Что такое хуки в React?</summary>
+<div>
+  <br />
+  <p>
+    Хуки — нововведение в React 16.8, которое позволяет использовать состояние и другие возможности React без написания классов. Хуки — это функции, с помощью которых вы можете «подцепиться» к состоянию и методам жизненного цикла React из функциональных компонентов. Хуки не работают внутри классов — они дают вам возможность использовать React без классов. 
+  </p>
+  <p>
+    Хук состояния - useState
+    
+      import React, { useState } from 'react';
+
+      function Example() {
+        // Объявляем новую переменную состояния "count"
+        const [count, setCount] = useState(0);
+
+        return (
+          <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+              Нажми на меня
+            </button>
+          </div>
+        );
+      }
+    
+   Вызов useState возвращает две вещи: текущее значение состояния и функцию для его обновления. Эту функцию можно использовать где угодно, например, в обработчике событий. Она схожа с this.setState в классах, но не сливает новое и старое состояние вместе. Единственный аргумент useState — это начальное состояние. В примере выше — это 0, так как наш счётчик начинается с нуля.
+  </p>
+  <p>
+    Хук эффекта - useEffect
+    
+    import React, { useState, useEffect } from 'react';
+
+    function Example() {
+      const [count, setCount] = useState(0);
+
+      // По принципу componentDidMount и componentDidUpdate:
+      useEffect(() => {
+        // Обновляем заголовок документа, используя API браузера
+        document.title = `Вы нажали ${count} раз`;
+      });
+
+      return (
+        <div>
+          <p>Вы нажали {count} раз</p>
+          <button onClick={() => setCount(count + 1)}>
+            Нажми на меня
+          </button>
+        </div>
+      );
+    }
+   
+   Когда вы вызываете useEffect, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. Поскольку эффекты объявляются внутри компонента, у них есть доступ к его пропсам и состоянию. По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/hooks-overview.html">ru.reactjs.org</a></i></p>
+</div>
+</details>
