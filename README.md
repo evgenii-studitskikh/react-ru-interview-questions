@@ -602,3 +602,17 @@
     <p><i>Источник: <a href ="https://developer.mozilla.org/ru/docs/Web/HTTP/Methods">developer.mozilla.org</a></i></p>
   </div>
 </details>
+
+<details>
+  <summary>Что такое Cross-Origin Resource Sharing (CORS)?</summary>
+  <div>
+    <p>
+      Cross-Origin Resource Sharing (CORS) — механизм, использующий дополнительные HTTP-заголовки, чтобы дать возможность агенту пользователя получать разрешения на доступ к выбранным ресурсам с сервера на источнике (домене), отличном от того, что сайт использует в данный момент. Говорят, что агент пользователя делает запрос с другого источника (cross-origin HTTP request), если источник текущего документа отличается от запрашиваемого ресурса доменом, протоколом или портом.
+    </p>
+    <p>
+      В целях безопасности браузеры ограничивают cross-origin запросы, инициируемые скриптами. Например, XMLHttpRequest и Fetch API следуют политике одного источника (same-origin policy). Это значит, что web-приложения, использующие такие API, могут запрашивать HTTP-ресурсы только с того домена, с которого были загружены, пока не будут использованы CORS-заголовки.
+    </p>
+    <p><i>Источник: <a href ="https://developer.mozilla.org/ru/docs/Web/HTTP/CORS">developer.mozilla.org</a></i></p>
+  </div>
+</details>
+
