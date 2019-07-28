@@ -1,4 +1,4 @@
-## Вопросы на собеседовании Front - End разработчика React.js
+## Вопросы на собеседовании фронтенд разработчика React.js
 
 Здесь собраны самые популярные вопросы, задаваемые на русскоязычных собеседованиях front-end разработчиков на React.js.  Тематика вопросов включает в себя как основы JavaScript и веб-технологий так и глубокое понимание работы React.js.
 
@@ -610,6 +610,17 @@
     <a href ="https://css-tricks.com/how-react-reconciliation-works/">css-tricks.com</a>,
     <a href ="https://ru.reactjs.org/docs/reconciliation.html">ru.reactjs.org</a>
   </i></p>
+</div>
+</details>
+
+<details>
+<summary>Можно создавать анимации в React?</summary>
+<div>
+  <br />
+  <p>
+    React может использоваться для создания крутых анимаций! В качестве примера посмотрите библиотеки React Transition Group и React Motion.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/faq-styling.html#can-i-do-animations-in-react">ru.reactjs.org</a></i></p>
 </div>
 </details>
 
