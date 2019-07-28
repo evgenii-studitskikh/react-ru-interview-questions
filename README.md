@@ -794,7 +794,7 @@
     </ul>
     <p>
      <i>
-       Источник: <a href="https://tproger.ru/translations/oop-principles-cheatsheet/">tproger.ru</a
+       Источник: <a href="https://tproger.ru/translations/oop-principles-cheatsheet/">tproger.ru</a>
      </i>
     </p>
   </div>
@@ -832,7 +832,48 @@
     </ul>
     <p>
      <i>
-       Источник: <a href="https://ru.wikipedia.org/wiki/SOLID_%28%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%29">wikipedia.org</a
+       Источник: <a href="https://ru.wikipedia.org/wiki/SOLID_%28%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%29">wikipedia.org</a>
+     </i>
+    </p>
+  </div>
+</details>
+  
+<details>
+  <summary>Что такое Babel и для чего он используется?</summary>
+  <div>
+    <br/>
+    <p>
+      Babel.JS – это транспайлер, переписывающий код на ES-2015 в код на предыдущем стандарте ES5.
+    </p>
+    <p>
+      Обычно Babel.JS работает на сервере в составе системы сборки JS-кода (например webpack или brunch) и автоматически переписывает весь код в ES5.
+    </p>
+    <p>
+      Настройка такой конвертации тривиальна, единственно – нужно поднять саму систему сборки, а добавить к ней Babel легко, плагины есть к любой из них.
+    </p>
+    <p>
+      Конфигурация Babel прописывается в файле babel.config.js, либо в .babelrc для настроек одного пакета, а также в package.json или .babelrc.js
+    </p>
+    <p>
+    Пример конфига в babel.config.js:
+      
+      module.exports = function (api) {
+        api.cache(true);
+
+        const presets = [ ... ];
+        const plugins = [ ... ];
+
+        return {
+          presets,
+          plugins
+        };
+      }
+   </p>
+    <p>
+     <i>
+       Источник: 
+        <a href="https://learn.javascript.ru/es-modern-usage#babel-js">learn.javascript.ru</a>, 
+        <a href="https://babeljs.io/docs/en/next/configuration">babeljs.io</a>
      </i>
     </p>
   </div>
