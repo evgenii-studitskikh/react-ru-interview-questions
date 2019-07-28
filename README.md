@@ -168,6 +168,36 @@
 </details>
 
 <details>
+  <summary>Что такое статический метод класса (static)?</summary>
+  <div>
+    <p>
+      Ключевое слово static используется в классах для определения статичных методов. Статичные методы функции, принадлежащие объекту класса, но не доступные другим объектам того же класса.
+      
+      class Repo {
+        static getName() {
+          return "Repo name is modern-js-cheatsheet"
+        }
+      }
+
+      // нам не нужно создавать объект класса Repo
+      console.log(Repo.getName()) // "Repo name is modern-js-cheatsheet"
+
+      let r = new Repo();
+      console.log(r.getName()) // необработанная ошибка TypeError: r.getName не является функцией
+   </p>
+    <p>
+      Cтатические методы вызываются через имя класса. Вызывать статические методы через имя объекта запрещено. Статические методы часто используются для создания вспомогательных функций приложения.
+    </p>
+    <p>
+    </p>
+    <p>
+      <i>Источник: <a href="https://tproger.ru/translations/javascript-cheatsheet/#sttcmthds">tproger.ru</a>
+      </i>
+    </p>
+  </div>
+</details>
+
+<details>
 <summary>Что такое Set, Map, WeakSet и WeakMap?</summary>
 <div>
   <br/>
