@@ -441,6 +441,44 @@
 </div>
 </details>
 
+<details>
+<summary>Как работает проп children?</summary>
+<div>
+  <br />
+  <p>
+    Некоторые компоненты не знают своих потомков заранее. Это особенно характерно для таких компонентов, как Sidebar или Dialog, которые представляют из себя как бы «коробку», в которую можно что-то положить. Для таких компонентов мы рекомендуем использовать специальный проп children, который передаст дочерние элементы сразу на вывод:
+    
+    function FancyBorder(props) {
+      return (
+        <div className={'FancyBorder FancyBorder-' + props.color}>
+          {props.children}
+        </div>
+      );
+    }
+  </p>
+  <p>
+    Это позволит передать компоненту произвольные дочерние элементы, вложив их в JSX:
+  
+    function WelcomeDialog() {
+      return (
+        <FancyBorder color="blue">
+          <h1 className="Dialog-title">
+            Добро пожаловать
+          </h1>
+          <p className="Dialog-message">
+            Спасибо, что посетили наш космический корабль!
+          </p>
+        </FancyBorder>
+      );
+    }
+  </p>
+  <p>
+    Всё, что находится внутри JSX-тега <FancyBorder>, передаётся в компонент FancyBorder через проп children. Поскольку FancyBorder рендерит {props.children} внутри div, все переданные элементы отображаются в конечном выводе.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/composition-vs-inheritance.html#containment">ru.reactjs.org</a></i></p>
+</div>
+</details>
+
 
 <details>
 <summary>В чем разница между управляемыми (controlled) и не управляемыми (uncontrolled) компонентами?</summary>
