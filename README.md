@@ -656,7 +656,7 @@
 </details>
 
 <details>
-<summary>Что такое React Reconciliation (Согласование) и как он работает?</summary>
+<summary>Что такое React Reconciliation (Cверка) и как он работает?</summary>
 <div>
   <br />
   <p>
