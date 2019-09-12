@@ -982,6 +982,78 @@
 </details>
 
 <details>
+  <summary>Для чего используется WebSocket? В чем принцип его работы?</summary>
+  <div>
+    <br/>
+    <p>
+      Протокол WebSocket («веб-сокет»), описанный в спецификации RFC 6455, обеспечивает возможность обмена данными между браузером и сервером через постоянное соединение. Данные передаются по нему в обоих направлениях в виде «пакетов», без разрыва соединения и дополнительных HTTP-запросов.
+    </p>
+    <p>
+      Чтобы открыть веб-сокет-соединение, нам нужно создать объект new WebSocket, указав в url-адресе специальный протокол ws:
+      <code>
+        let socket = new WebSocket("ws://javascript.info");
+      </code>
+    </p>
+    <p>
+      Как только объект WebSocket создан, мы должны слушать его события. Их всего 4:
+    </p>
+    <ul>
+      <li>
+        <b>open</b> – соединение установлено,
+      </li>
+      <li>
+        <b>message</b> – получены данные,
+      </li>
+      <li>
+        <b>error</b> – ошибка,
+      </li>
+      <li>
+        <b>close</b> – соединение закрыто.
+      </li>
+    </ul>
+    <p>
+      Вот пример:
+    </p>
+    <p>
+      
+      let socket = new WebSocket("wss://javascript.info/article/websocket/demo/hello");
+      
+      socket.onopen = function(e) {
+        alert("[open] Соединение установлено");
+        alert("Отправляем данные на сервер");
+        socket.send("Меня зовут Джон");
+      };
+      
+      socket.onmessage = function(event) {
+        alert(`[message] Данные получены с сервера: ${event.data}`);
+      };
+      
+      socket.onclose = function(event) {
+        if (event.wasClean) {
+          alert(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+        } else {
+          // например, сервер убил процесс или сеть недоступна
+          // обычно в этом случае event.code 1006
+          alert('[close] Соединение прервано');
+        }
+      };
+      
+      socket.onerror = function(error) {
+        alert(`[error] ${error.message}`);
+      };
+   </p>
+    <p>
+      Вызов socket.send(body) принимает body в виде строки или любом бинарном формате включая Blob, ArrayBuffer и другие. Дополнительных настроек не требуется, просто отправляем в любом формате. При получении данных, текст всегда поступает в виде строки. А для бинарных данных мы можем выбрать один из двух форматов: Blob или ArrayBuffer.
+    </p>
+    <p>
+     <i>
+       Источник: <a href="https://learn.javascript.ru/websocket">javascript.ru</a>
+     </i>
+    </p>
+  </div>
+</details>
+
+<details>
   <summary>Что такое Веб-компоненты и какие технологии в них используются?</summary>
   <div>
     <br/>
