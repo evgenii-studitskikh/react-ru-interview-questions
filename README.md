@@ -769,7 +769,7 @@
 <details>
   <summary>Из чего состоит HTTP-запрос?</summary>
   <div>
-    <img src='https://mdn.mozillademos.org/files/13687/HTTP_Request.png' />
+    ![image](https://github.com/likezninjaz/react-ru-interview-questions/assets/81578359/2875ffaf-4874-4290-b69d-739d4da014ac)
     <p>
       Запросы содержат следующие элементы:
     </p>
